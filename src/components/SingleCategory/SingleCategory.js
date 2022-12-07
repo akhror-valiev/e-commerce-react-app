@@ -13,12 +13,12 @@ const SingleCategory = ({ products, status }) => {
 
 
     const dispatch = useDispatch();
-    const { setIsModalVisible } = useSelector((state) => state.modal);
+    const { isModalVisible } = useSelector((state) => state.modal);
 
     const viewModalHandler = data => {
         dispatch(setModalData(data));
-        dispatch(setIsModalVisible(true))
-    }
+        dispatch(setIsModalVisible(true));
+    };
 
 
     if (status === STATUS.ERROR) return (<Error />);
@@ -29,7 +29,7 @@ const SingleCategory = ({ products, status }) => {
 
         <section className="cat-single py-5-ghost-white">
             {
-                isModalVisible && <SingleProduct />:
+                isModalVisible && <SingleProduct />
             }
             <div className="container">
                 <div className="cat-single-content">
